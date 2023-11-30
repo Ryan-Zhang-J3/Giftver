@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 class ParticipantList(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    content = db.column(db.String(60), nullable = False)
+    content = db.Column(db.String(60), nullable = False)
     date_created = db.Column(db.DateTime, default = datetime.utcnow)
 
     def __repr__(self):
