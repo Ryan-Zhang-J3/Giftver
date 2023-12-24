@@ -45,6 +45,20 @@ def delete(id):
     except:
         return 'Error deleting participant'
     
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    participant_to_update = ParticipantList.query.get_or_404(id)
+    if request.method == 'POST':
+        participant_to_update.content = request.form['content']
+
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'Error updating participant email'
+    else:
+        return render_template('update.html', participant=participant_to_update)
+    
     
 if __name__ == "__main__":
     app.run(debug=True)
