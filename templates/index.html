@@ -5,32 +5,35 @@
 {% endblock %}
 
 {% block body %}
-<div class = "content">
+<div class="content">
     <h2>Exchange Participants</h2>
     {% if participants|length < 1 %}
     <h4 style="text-align: center">Add your first participant!</h4>
     {% else %}
-
     <table>
         <tr>
             <th>Participant</th>
-            <th>Added</th>
             <th>Actions</th>
         </tr>
         {% for participant in participants %}
-            <tr>
-                <td>{{ participant.content }}</td>
-                <td>{{ participant.date_created.date() }}</td>
-                <td>
-                    <a href="/delete/{{participant.id}}">Remove from Exchange</a>
-                    <a href="/update/{{participant.id}}">Edit Participant</a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ participant.content }}</td>
+            <td>
+                <a href="/delete/{{participant.id}}">Remove from Exchange</a>
+                <a href="/update/{{participant.id}}">Edit Participant</a>
+            </td>
+        </tr>
         {% endfor %}
     </table>
     {% endif %}
-    <form action="/" method="POST">
-        <input type="text" name="content" id="content">
+    <form action="/" method="POST" class="form">
+        <label for="name">Participant Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="content">Participant Email:</label>
+        <input type="text" name="content" id="content" placeholder="*****@email.com">
+        <label for="wishlist">Wish List:</label>
+        <textarea id="wishlist" name="wishList" rows="4" cols="50" value=""></textarea>
+        <br>
         <input type="submit" value="Add Participant">
     </form>
 </div>

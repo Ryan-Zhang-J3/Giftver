@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: #f0f0f0;
 }
 
 .content {
@@ -16,6 +16,7 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 20px;
 }
 
 th {
@@ -31,6 +32,18 @@ td {
     margin-top: 20px;
 }
 
-#content {
-    width: 70%;
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#content, #wishList {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form input[type="submit"] {
+    display: block;
+    margin: 0 auto;
 }
