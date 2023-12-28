@@ -153,7 +153,7 @@ def start_gift_exchange():
             body = f'Hello {participant.name}!\n\nYou have been assigned {recipient_name} as your secret Santa recipient.\nTheir wishlist: {recipient_wishlist}\n\nHappy gifting!'
             msg = Message(subject=subject, body=body, sender=(app.config['MAIL_USERNAME'], "Santa's Elves"), recipients=[participant.content])
             conn.send(msg)
-
+#test
     try:
         db.session.commit()
         return 'Secret Santa gift exchange initiated'
