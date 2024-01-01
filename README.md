@@ -1,7 +1,7 @@
 # Giftver
 
 ## Description
-[Giftver is an easy to use web application that allows friends to create, manage, and run Secret Santa Gift Exchanges from anywhere.]
+Giftver is an easy to use web application that allows friends to create, manage, and run Secret Santa Gift Exchanges from anywhere.
 
 ## Requirements
 - Flask
@@ -9,7 +9,7 @@
 - SQLite3
   
 
-## Installation
+## Use the website!
 Visit the link here: 
 
 ## Usage
