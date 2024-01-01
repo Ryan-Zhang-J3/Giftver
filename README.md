@@ -10,7 +10,7 @@ Giftver is an easy to use web application that allows friends to create, manage,
   
 
 ## Use the website!
-Visit the link here: 
+Visit the link here: https://giftver-app-65f27da8e03a.herokuapp.com/
 
 ## Usage
 Add users to the exchange by using the easy to use-menu.
