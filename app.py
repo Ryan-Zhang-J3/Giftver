@@ -54,8 +54,14 @@ def is_valid_email(email):
     return re.match(pattern, email)
     
 #Adding Participant
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['GET'])
 def index():
+    if request.method == 'GET':
+        participants = ParticipantList.query.order_by(ParticipantList.date_created).all()
+        return render_template('index.html', participants=participants)
+
+@app.route('/add_participant', methods=['GET', 'POST'])
+def add_participant():
     if request.method == 'POST':
         name = request.form['name']
         participant_content = request.form['content']
@@ -70,12 +76,6 @@ def index():
         
         new_participant = ParticipantList(content=participant_content, name=name)
 
-        # Check if 'wishlist' key is present in the form data
-        participant_wishlist = request.form.get('wishlist')
-        if participant_wishlist:
-            new_wishlist = Wishlist(wishlist_content=participant_wishlist)
-            new_participant.wishlist = new_wishlist
-
         try:
             db.session.add(new_participant)
             db.session.commit()
@@ -83,9 +83,9 @@ def index():
         except:
             return 'Error adding participant'
     else:
-        participants = ParticipantList.query.order_by(ParticipantList.date_created).all()
-        return render_template('index.html', participants=participants)
+        return render_template('add_participant.html')
     
+
 #Deleting Participant
 @app.route('/delete/<int:id>')
 def delete(id):

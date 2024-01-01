@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <form action="/add_participant" method="POST" class="form">
+        <div class="form-group">
+            <label for="name">Participant Name:</label>
+            <br>
+            <input type="text" name="name" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Participant Email:</label>
+            <br>
+            <input type="text" name="content" id="content" placeholder="*****@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="wishlist">Wish List:</label>
+            <br>
+            <textarea id="wishlist" name="wishList" rows="4" cols="20" value=""></textarea>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Add Participant</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

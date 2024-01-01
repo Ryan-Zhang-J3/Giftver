@@ -1,45 +1,47 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1>Giftver</h1>
 {% endblock %}
 
 {% block body %}
 <div class="content">
-    <h2>Exchange Participants</h2>
-    {% if participants|length < 1 %}
-    <h4 style="text-align: center">Add your first participant!</h4>
-    {% else %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        {% for participant in participants %}
-        <tr>
-            <td>{{ participant.name }}</td>
-            <td>{{ participant.content }}</td>
-            <td>
-                <a href="/delete/{{participant.id}}">Remove from Exchange</a>
-                <a href="/update/{{participant.id}}">Edit Participant</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-    <form action="/" method="POST" class="form">
-        <label for="name">Participant Name:</label>
-        <input type="text" name="name" id="name" required>
-        <label for="content">Participant Email:</label>
-        <input type="text" name="content" id="content" placeholder="*****@email.com" required>
-        <label for="wishlist">Wish List:</label>
-        <textarea id="wishlist" name="wishList" rows="4" cols="50" value=""></textarea>
-        <br>
-        <input type="submit" value="Add Participant">
-    </form>
-    <form action="/start_gift_exchange" method="GET">
-        <input type="submit" value="Start Gift Exchange">
-    </form>
+    <h1 style="text-align: center" >Giftver</h1>
+	<h2>Exchange Participants</h2>
+
+	{% if participants|length < 1 %}
+	<h4 style="text-align: center">Add your first participant!</h4>
+	{% else %}
+	<div class="table-container">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Actions</th>
+			</tr>
+			{% for participant in participants %}
+			<tr>
+				<td>{{ participant.name }}</td>
+				<td>{{ participant.content }}</td>
+				<td>
+					<div class="action-buttons">
+						<div>
+							<a href="/delete/{{participant.id}}" class="btn btn-danger">Remove from Exchange</a>
+						</div>
+						<div>
+							<a href="/update/{{participant.id}}" class="btn btn-primary">Edit Participant</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	{% endif %}
+	<form action="/start_gift_exchange" method="GET">
+		<div class="form-group">
+            <a href="/add_participant" class="btn btn-primary">Add Participant</a>
+			<button type="submit" class="btn btn-primary start-button">Start Gift Exchange</button>
+		</div>
+	</form>
 </div>
 {% endblock %}
