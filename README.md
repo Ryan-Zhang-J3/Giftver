@@ -14,8 +14,8 @@ Visit the link here: https://giftver-app-65f27da8e03a.herokuapp.com/
 
 ## Usage
 Add users to the exchange by using the easy to use-menu.
-![image](https://github.com/Ryan-Zhang-J3/Giftver/assets/122586539/6049eeab-dfbb-491d-9d51-7cb0173510cf)
+![image](https://github.com/Ryan-Zhang-J3/Giftver/assets/122586539/6049eeab-dfbb-491d-9d51-7cb0173510cf) \n
 Manage users using the homepage of the application.
-![image](https://github.com/Ryan-Zhang-J3/Giftver/assets/122586539/427bfb2f-e034-476b-931f-0b4c8e6cde8e)
+![image](https://github.com/Ryan-Zhang-J3/Giftver/assets/122586539/3209087c-4acd-4f41-a771-de34f8370dcf)
 Start the gifting tradition!
 
