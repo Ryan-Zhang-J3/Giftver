@@ -65,6 +65,8 @@ def add_participant():
     if request.method == 'POST':
         name = request.form['name']
         participant_content = request.form['content']
+        wishlist_value = request.form.get('wishlist')
+
         # Check if the email is valid
         if not is_valid_email(participant_content):
             return 'Invalid email'
@@ -73,8 +75,12 @@ def add_participant():
         existing_participant = ParticipantList.query.filter_by(content=participant_content).first()
         if existing_participant:
             return 'Email already exists in the database'
-        
+
         new_participant = ParticipantList(content=participant_content, name=name)
+
+        if wishlist_value:
+            new_wishlist = Wishlist(wishlist_content=wishlist_value)
+            new_participant.wishlist = new_wishlist
 
         try:
             db.session.add(new_participant)
@@ -84,7 +90,6 @@ def add_participant():
             return 'Error adding participant'
     else:
         return render_template('add_participant.html')
-    
 
 #Deleting Participant
 @app.route('/delete/<int:id>')
